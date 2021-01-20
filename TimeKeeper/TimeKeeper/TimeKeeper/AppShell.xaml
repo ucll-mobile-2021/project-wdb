@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:view="clr-namespace:TimeKeeper.View"
+       x:Class="TimeKeeper.AppShell"
+       BackgroundColor="#2b4ea0">
+
+        <TabBar>
+            <Tab Title="Stopwatch" Icon="ic_round_alarm_white_24dp">
+                <ShellContent>
+                    <view:StopwatchPage />
+                </ShellContent>
+            </Tab>
+            <Tab Title="Alarm" Icon="ic_round_notifications_white_24dp">
+                <ShellContent>
+                    <view:AlarmPage />
+                </ShellContent>
+            </Tab>
+        </TabBar>
+</Shell>
