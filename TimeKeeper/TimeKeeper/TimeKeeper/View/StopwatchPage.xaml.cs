@@ -12,7 +12,7 @@ namespace TimeKeeper.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StopwatchPage : ContentPage
     {
-        Stopwatch timer;
+        private Stopwatch timer;
 
         public StopwatchPage()
         {

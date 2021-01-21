@@ -12,7 +12,7 @@ namespace TimeKeeper.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TimerPage : ContentPage
     {
-        Countdown countdown;
+        private Countdown countdown;
 
         public TimerPage()
         {

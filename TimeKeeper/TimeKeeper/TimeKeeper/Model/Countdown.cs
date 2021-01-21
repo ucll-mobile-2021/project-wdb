@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Text;
 using System.Timers;
 
@@ -9,7 +8,7 @@ namespace TimeKeeper.Model
 {
     public class Countdown : INotifyPropertyChanged
     {
-        Timer timer;
+        private Timer timer;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -55,6 +54,11 @@ namespace TimeKeeper.Model
             timer.AutoReset = true;
         }
 
+        ~Countdown()
+        {
+            timer.Close();
+        }
+
         public void Start()
         {
             if (!timer.Enabled)
@@ -93,8 +97,6 @@ namespace TimeKeeper.Model
                 Seconds = -1;
 
                 Update();
-
-                Debug.WriteLine("" + Hours + ":" + Minutes + ":" + Seconds);
             }
         }
     }

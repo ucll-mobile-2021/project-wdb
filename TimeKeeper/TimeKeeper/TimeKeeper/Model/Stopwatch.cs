@@ -9,7 +9,7 @@ namespace TimeKeeper.Model
 {
     public class Stopwatch : INotifyPropertyChanged
     {
-        Timer timer;
+        private Timer timer;
         private DateTime time;
 
         public event PropertyChangedEventHandler PropertyChanged;
