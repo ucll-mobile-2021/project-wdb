@@ -2,10 +2,62 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TimeKeeper.View.TimerPage"
+             xmlns:local="clr-namespace:TimeKeeper.Model"
              Title="Timer">
+    
+    <Page.Resources>
+        <local:StringToIntConverter x:Key="StringToIntConverterKey"></local:StringToIntConverter>
+    </Page.Resources>
+
     <ContentPage.Content>
         <StackLayout>
-            <TimePicker HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Format="HH:mm"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Column="0" Grid.Row="0">
+                    <Button Text="+" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Clicked="IncreaseHour"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="0">
+                    <Button Text="+" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Clicked="IncreaseMinute"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="0">
+                    <Button Text="+" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Clicked="IncreaseSeconds"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="1">
+                    <Label x:Name="hours" Text="{Binding Path=Hours, Converter={StaticResource StringToIntConverterKey}}" FontSize="64" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="1">
+                    <Label x:Name="minutes" Text="{Binding Path=Minutes, Converter={StaticResource StringToIntConverterKey}}" FontSize="64" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="1">
+                    <Label x:Name="seconds" Text="{Binding Path=Seconds, Converter={StaticResource StringToIntConverterKey}}" FontSize="64" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="2">
+                    <Button Text="-" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Clicked="DecreaseHour"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="2">
+                    <Button Text="-" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Clicked="DecreaseMinute" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="2">
+                    <Button Text="-" FontSize="24" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Clicked="DecreaseSeconds"/>
+                </StackLayout>
+            </Grid>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Button FontSize="24" Text="Start" Clicked="StartCountdown"/>
+                <Button FontSize="24" Text="Reset" Clicked="ResetCountdown"/>
+                <Button FontSize="24" Text="Stop" Clicked="StopCountdown"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

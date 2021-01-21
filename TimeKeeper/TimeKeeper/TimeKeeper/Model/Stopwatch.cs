@@ -28,6 +28,7 @@ namespace TimeKeeper.Model
         public Stopwatch()
         {
             timer = new Timer();
+            Time = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0, 0);
 
             timer.Elapsed += Timer_Elapsed;
             timer.Interval = 1000;
