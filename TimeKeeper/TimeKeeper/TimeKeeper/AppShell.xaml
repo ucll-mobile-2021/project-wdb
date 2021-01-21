@@ -6,15 +6,7 @@
        BackgroundColor="#2b4ea0">
 
         <TabBar>
-            <Tab Title="Stopwatch" Icon="ic_round_alarm_white_24dp">
-                <ShellContent>
-                    <view:StopwatchPage />
-                </ShellContent>
-            </Tab>
-            <Tab Title="Alarm" Icon="ic_round_notifications_white_24dp">
-                <ShellContent>
-                    <view:AlarmPage />
-                </ShellContent>
-            </Tab>
-        </TabBar>
+        <ShellContent Title="Stopwatch" Icon="ic_round_alarm_white_24dp" ContentTemplate="{DataTemplate view:StopwatchPage}" />
+        <ShellContent Title="Timer" Icon="ic_round_notifications_white_24dp" ContentTemplate="{DataTemplate view:TimerPage}" />
+    </TabBar>
 </Shell>

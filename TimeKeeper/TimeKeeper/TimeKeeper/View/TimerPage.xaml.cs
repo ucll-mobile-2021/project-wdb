@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace TimeKeeper.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AlarmPage : ContentPage
+    public partial class TimerPage : ContentPage
     {
-        public AlarmPage()
+        public TimerPage()
         {
             InitializeComponent();
         }
